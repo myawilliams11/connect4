@@ -13,20 +13,38 @@ for (let iCol = 0; iCol < numberOfColumns; iCol++) {       // columns
   gameBoard.appendChild(column);
 
   column.addEventListener('click', function (event) {
-    counter++;
-
     let clickedColumn = event.target;
+    
+    if (clickedColumn.childElementCount < 6 ){
+        counter++;
 
-    let piece = document.createElement('div');
-    piece.classList.add('dot');
-    piece.classList.add(currentPlayer);
+        
+        let piece = document.createElement('div');
+        piece.classList.add('dot');
+        piece.classList.add(currentPlayer);
+    
+        let newNextPlayer = currentPlayer;
+        currentPlayer = nextPlayer;
+        nextPlayer = newNextPlayer;
+    
+       
+        clickedColumn.appendChild(piece);
 
-    let newNextPlayer = currentPlayer;
-    currentPlayer = nextPlayer;
-    nextPlayer = newNextPlayer;
+      }
+    // counter++;
 
-    piece.textContent = counter;
-    clickedColumn.appendChild(piece);
+    // let clickedColumn = event.target;
+
+    // let piece = document.createElement('div');
+    // piece.classList.add('dot');
+    // piece.classList.add(currentPlayer);
+
+    // let newNextPlayer = currentPlayer;
+    // currentPlayer = nextPlayer;
+    // nextPlayer = newNextPlayer;
+
+   
+    // clickedColumn.appendChild(piece);
   })
 
 
