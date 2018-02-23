@@ -8,7 +8,7 @@
     flex-direction: column-reverse;
     width: 100px;
     height: 600px;
-    border: 1px dotted black;
+    border: 5px solid black;
   }
   
   .dot {
