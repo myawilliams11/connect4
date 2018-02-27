@@ -6,7 +6,7 @@ let counter = 0;
 let currentPlayer = 'coral';
 let nextPlayer = 'seagreen';
 
-for (let iCol = 0; iCol < numberOfColumns; iCol++) {       // columns
+for (let y = 0; y < numberOfColumns; y++) {       // y = columns
   
   let column = document.createElement('div');
   column.classList.add('column');
@@ -50,4 +50,36 @@ for (let iCol = 0; iCol < numberOfColumns; iCol++) {       // columns
 
   
 
+}
+
+
+// // ***** NEW STUFF *****
+
+boardState = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+  ]
+  let columns = document.getElementsByClassName('column');
+  
+  for (let x = 0; x < columns.length; x++) {
+    columns[x].innerHTML = '';
+  }
+ 
+ 
+ function checkWin() {
+  const edgeX = boardState[0].length - 3;
+  for (let y = 0; y < boardState.length; y++) {
+    let row = boardState[y];
+    for (let x = 0; x < edgeX; x++) {
+      let cell = row[x];
+      if (cell === boardState[y][x+1] && cell === boardState[y][x+2] && cell === boardState[y][x+3] && cell != 0) {
+        alert(currentPlayer + ' Wins!');
+        reset();
+      }
+    }
+  }
 }
